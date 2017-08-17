@@ -1,0 +1,17 @@
+{
+  "name": "generator-esprimu",
+  "version": "0.1.0",
+  "description": "An opinionated generator for Express",
+  "repository": ".",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "yeoman-generator"
+  ],
+  "author": "Clinton Dreisbach",
+  "license": "MIT",
+  "dependencies": {
+    "yeoman-generator": "^1.1.1"
+  }
+}
