@@ -3,7 +3,8 @@ const Generator = require('yeoman-generator');
 module.exports = class extends Generator {
     // The name `constructor` is important here
     constructor(args, opts) {
-        // Calling the super constructor is important so our generator is correctly set up
+        // Calling the super constructor is important so our generator is correctly
+        // set up
         super(args, opts);
 
         // Next, add your custom code
@@ -28,6 +29,7 @@ module.exports = class extends Generator {
     writing() {
         this.fs.copyTpl(this.templatePath('package.json'), this.destinationPath('package.json'));
         this.fs.copyTpl(this.templatePath('app.js.ejs'), this.destinationPath('app.js'), {templateLanguage: this.config.get('templateLanguage')});
+        this.fs.copyTpl(this.templatePath('server.js'), this.destinationPath('server.js'));
     }
 
     install() {
