@@ -30,22 +30,27 @@ module.exports = class extends Generator {
         this.fs.copyTpl(this.templatePath('package.json'), this.destinationPath('package.json'));
         this.fs.copyTpl(this.templatePath('app.js.ejs'), this.destinationPath('app.js'), {templateLanguage: this.config.get('templateLanguage')});
         this.fs.copyTpl(this.templatePath('server.js'), this.destinationPath('server.js'));
+
+        if (this.config.get('templateLanguage') === 'mustache') {
+          this.fs.copyTpl(this.templatePath('views/layout.mustache'), this.destinationPath('views/layout.mustache'));
+          this.fs.copyTpl(this.templatePath('views/index.mustache'), this.destinationPath('views/index.mustache'));
+        }
     }
 
     install() {
-        this.installDependencies({npm: false, yarn: true, bower: false})
+        this.installDependencies({npm: true, yarn: false, bower: false})
     }
 
     installingExpress() {
-        this.yarnInstall(['express']);
+        this.npmInstall(['express']);
     }
 
     installingTemplateLanguage() {
         const language = this.config.get('templateLanguage');
         if (language === 'mustache') {
-            this.yarnInstall(['express-mustache']);
+            this.npmInstall(['mustache-express']);
         } else if (language === 'nunjucks') {
-            this.yarnInstall(['nunjucks']);
+            this.npmInstall(['nunjucks']);
         }
     }
 };

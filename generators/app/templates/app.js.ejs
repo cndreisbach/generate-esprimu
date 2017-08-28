@@ -25,3 +25,9 @@ nunjucks.configure('views', {
 app.use('/static', express.static('static'));
 
 // put routes here
+
+app.get('/', function (req, res) {
+  res.render('index');
+})
+
+module.exports = app;
