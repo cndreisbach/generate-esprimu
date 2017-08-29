@@ -30,6 +30,7 @@ module.exports = class extends Generator {
         this.fs.copyTpl(this.templatePath('package.json'), this.destinationPath('package.json'));
         this.fs.copyTpl(this.templatePath('app.js.ejs'), this.destinationPath('app.js'), {templateLanguage: this.config.get('templateLanguage')});
         this.fs.copyTpl(this.templatePath('server.js'), this.destinationPath('server.js'));
+        this.fs.copyTpl(this.templatePath('static/style.css'), this.destinationPath('static/style.css'));
 
         if (this.config.get('templateLanguage') === 'mustache') {
           this.fs.copyTpl(this.templatePath('views/layout.mustache'), this.destinationPath('views/layout.mustache'));
